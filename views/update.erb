@@ -1,22 +1,22 @@
 <form method="post" action="/pizza-orders/<%=@order.id%>">
 
   <label for="first-name">First Name:</label>
-  <input id="first-name" type="text" name="first_name" value="<%= @order.first_name %>"/>
+  <input id="first-name" required type="text" name="first_name" value="<%= @order.first_name %>"/>
 
   <label for="last-name">Last Name:</label>
-  <input id="last-name" type="text" name="last_name" value="<%= @order.last_name %>"/>
+  <input id="last-name" required type="text" name="last_name" value="<%= @order.last_name %>"/>
 
   <label for="pizza-select">Select a pizza:</label>
   <select id="pizza-select" type="text" name="topping"/>
-    <option value="Margherita">Margherita</option>
-    <option value="Italian Sausage">Italian Sausage</option>
-    <option value="Pepperoni">Pepperoni</option>
-    <option value="Ham and Pineapple">Ham and Pineapple</option>
-    <option value="Meat Feast">Meat Feast</option>
+    <option value="Margherita"<%= "selected" if @order.topping == "Margherita" %>>Margherita</option>
+    <option value="Italian Sausage"<%= "selected" if @order.topping == "Italian Sausage" %>>Italian Sausage</option>
+    <option value="Pepperoni"<%= "selected" if @order.topping == "Pepperoni" %>>Pepperoni</option>
+    <option value="Ham and Pineapple"<%= "selected" if @order.topping == "Ham and Pineapple" %>>Ham and Pineapple</option>
+    <option value="Meat Feast"<%= "selected" if @order.topping == "Meat Feast" %>>Meat Feast</option>
   </select>
 
   <label for="quantity">Quantity:</label>
-  <input id="quantity" type="number" name="quantity" value="<%= @order.quantity %>"/>
+  <input id="quantity" type="number" min="0" name="quantity" value="<%= @order.quantity %>"/>
 
   <input type="submit"value="Update Order"/>
 
